@@ -9,4 +9,7 @@ This website was supposed to be a mystery game where the player has to solve the
 
 This project was built using my webapp framework at https://github.com/Nik-Hendricks/PWA-MUI
 
+
  I designed and programmed a simple SQL editor that features line numbering and syntax highlighting. 
+
+ ![alt text](https://cdn.discordapp.com/attachments/938889194393186315/938999991136047175/D46E14E2-01A3-4B74-912D-C85316E6211B.png)
