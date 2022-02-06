@@ -11,4 +11,6 @@ This project was built using my webapp framework at https://github.com/Nik-Hendr
 
 
  I designed and programmed a simple SQL editor that features line numbering and syntax highlighting. 
+
+
 <img src="https://cdn.discordapp.com/attachments/938889194393186315/938999991136047175/D46E14E2-01A3-4B74-912D-C85316E6211B.png" alt="drawing" width="200"/>

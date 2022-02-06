@@ -12,9 +12,16 @@ class HappyBirthdayView extends View{
                          </card-item>`
 
         window.DP.dispatch("VIEW_LOAD")
+
+        this.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            window.AudioManager.play_track('bday_song')
+        });
     }
 
 }
 
 window.customElements.define('happy-birthday-view', HappyBirthdayView);
 export{HappyBirthdayView};
+
+

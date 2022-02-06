@@ -1,5 +1,6 @@
 import Dispatcher from '/js/dispatcher.js';
 import API2 from '/js/API2.js'
+import AudioManager from '/js/AudioManager.js';
 import ViewManager from '/js/viewManager.js';
 
 
@@ -33,6 +34,9 @@ import {ERDView} from '/views/ERDView.js';
 window.onload = () => {
     register_service_worker();
     register_views();
+
+    window.AudioManager.add_track('bday_song', '/audio/song1.mp3')
+    
 
     window.DP.on("VIEW_LOAD", () => {
         window.loadingSpinner.hide();
@@ -103,10 +107,8 @@ function register_views(){
 
     var routes = {
         "":{
-            primary_color: theme_primary_color,
-            secondary_color: theme_secondary_color,
-            title: 'Bobs Burgers Mystery',
-            view:`<main-view></main-view>`
+            title: 'Happy Birthday',
+            view:`<happy-birthday-view></happy-birthday-view>`
         },
         "Solve":{
             title: `Solve`,

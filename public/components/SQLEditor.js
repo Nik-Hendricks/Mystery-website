@@ -45,6 +45,8 @@ class SQLEditor extends Component{
             window.API2.send_sql(sql_code).then(res => {
                 if(res.success){
                     this.construct_table(res.success);
+                }else{
+                    
                 }
             })
         }

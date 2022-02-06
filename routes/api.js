@@ -5,11 +5,12 @@ var datastore = require('../db/datastores.js')
 var uniqid = require('uniqid')
 var mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "newuser",
-  password: "password",
-  database:"MysterySQL"
+var con = mysql.createPool({
+    connectionLimit : 100, //important
+    host: "localhost",
+    user: "newuser",
+    password: "password",
+    database:"MysterySQL"
 });
 
 
@@ -25,14 +26,13 @@ module.exports = (() => {
     })   
 
     //public routes here
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
         API.post('/send_sql', (req, res) => {
             var sql = req.body.sql;
-            console.log(sql)
+            var new_sql = sql.replace(/(\r\n|\n|\r)/gm, " ").replace(';', '');
+            console.log(new_sql)
 
-            con.query(sql, function (err, result) {
+
+            con.query(new_sql, function (err, result) {
                 if (err){
                     res.json({'error': err})
                 }else{
@@ -41,7 +41,5 @@ module.exports = (() => {
                 }
             });      
         })
-    });
-    
     return API;
 })();

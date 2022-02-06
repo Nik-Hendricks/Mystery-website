@@ -58,6 +58,15 @@ app.get("/img/:file",function(req, res){
     res.sendFile(__dirname + '/public/img/'+file)
 })
 
+app.get("/audio/:file", () => {
+    var file = req.param('file')
+    res.header({
+        'Content-Type': 'audio/mpeg',
+        'Content-Length': getFilesizeInBytes(__dirname + '/public/audio/' + file)
+    });
+    res.sendFile(__dirname + '/public/audio/'+file)
+})
+
 app.get("/components/:file", (req, res) => {
     var file = req.param('file');
     res.header({
